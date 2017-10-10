@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="formInsert">
+    <h4>Form Insert</h4>
+    <form ng-submit="insertData()">
+        <table>
+            <tr>
+                <td>NIM</td>
+                <td><input type="text" ng-model="nim" placeholder="Nim Mahasiswa" required/></td>
+            </tr>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" ng-model="nama" placeholder="Nama Mahasiswa" required/></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" ng-model="gender" value="Male" />Male</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="radio" ng-model="gender" value="Female" />Female</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Insert Data"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

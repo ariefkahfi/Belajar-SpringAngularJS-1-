@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome Page</title>
+    <script src="webjars/angular/1.6.4/angular.js"></script>
+
+    <script src="webjars/angularjs/1.6.4/angular-route.js"></script>
+    <script src="webjars/angularjs/1.6.4/angular-resource.min.js"></script>
+
+</head>
+<body ng-app="mainApp"
+ng-init="item=[
+   {link:'#!/form',text:'Form insert'},{link:'#!/list',text:'List Data'}
+]"
+>
+    <ul>
+        <li ng-repeat="i in item">
+            <a href="{{i.link}}">{{i.text}}</a>
+        </li>
+    </ul>
+
+    <ng-view></ng-view>
+
+</body>
+    <script>
+        var app = angular.module('mainApp',['ngResource','ngRoute']);
+
+        app.config(function ($routeProvider){
+            $routeProvider.when('/form',{
+                templateUrl:"static/templates/FormInsert.html",
+                controller:"formInsert"
+            }).when('/list',{
+                templateUrl:"static/templates/ListData.html",
+               controller:"listData"
+            }).otherwise({
+                template:"<h4>No Content</h4>"
+            });
+        });
+
+    </script>
+
+    <script src="static/controllers/ListController.js"></script>
+    <script src="static/controllers/FormController.js"></script>
+    <script src="static/services/RestService.js"></script>
+</html>

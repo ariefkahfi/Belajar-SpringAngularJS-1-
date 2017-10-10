@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="listData">
+    <h4>List Data</h4>
+    <table border="2">
+        <tr>
+            <td>NIM</td>
+            <td>Nama</td>
+            <td>Gender</td>
+            <td>Delete</td>
+            <td>Update</td>
+        </tr>
+        <tr ng-repeat="d in data">
+            <td>{{d.nim}}</td>
+            <td>{{d.nama}}</td>
+            <td>{{d.gender}}</td>
+            <td><a href="" ng-click="deleteData(d.nim)">Delete</a></td>
+            <td><a href="" ng-click="tampilForm(d)">Update</a></td>
+        </tr>
+    </table>
+
+    <table ng-show="formUpdate">
+        <tr>
+            <td>Nim</td>
+            <td>{{updateNim}}</td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td><input type="text" ng-model="updateNama"/></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" ng-model="updateGender" value="Male"/>Male</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="radio" ng-model="updateGender" value="Female"/>Female</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update data" ng-click="submitUpdate()"/></td>
+        </tr>
+
+    </table>
+</body>
+</html>
